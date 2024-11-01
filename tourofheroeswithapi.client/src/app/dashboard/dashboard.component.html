@@ -1,1 +1,57 @@
-<p>dashboard works!</p>
+<div class="collapse collapse-arrow bg-base-200">
+  <input type="radio" name="my-accordion-2" checked="checked" />
+  <div class="collapse-title text-xl font-medium">Superman</div>
+  <div class="collapse-content">
+    <form>
+
+      <!-- Basic Information -->
+      <h2 class="text-lg font-semibold mt-4 mb-2 text-left">Basic Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label class="label" for="heroId">ID#</label>
+          <input type="text" id="heroId" class="input input-bordered w-full bg-gray-100 text-gray-500 cursor-not-allowed" readonly placeholder="ID12345" />
+        </div>
+
+        <div class="mb-4">
+          <label class="label" for="name">Name</label>
+          <input type="text" id="name" class="input input-bordered w-full" placeholder="Enter name" />
+        </div>
+
+        <div class="mb-4">
+          <label class="label" for="type">Type</label>
+          <input type="text" id="type" class="input input-bordered w-full" placeholder="Enter type" />
+        </div>
+
+        <div class="mb-4">
+          <label class="label" for="superpower">Superpower</label>
+          <input type="text" id="superpower" class="input input-bordered w-full" placeholder="Enter superpower" />
+        </div>
+      </div>
+
+      <!-- Stats Section (Rating & Health) -->
+      <h2 class="text-lg font-semibold mt-6 mb-2 text-left">Stats</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label class="label" for="rating">Rating</label>
+          <input type="number" id="rating" class="input input-bordered w-full" placeholder="Enter rating" />
+        </div>
+
+        <div class="mb-4">
+          <label class="label" for="health">Health</label>
+          <input type="number" id="health" class="input input-bordered w-full" placeholder="Enter health value" />
+        </div>
+      </div>
+
+      <!-- Description and Superpower Section -->
+      <h2 class="text-lg font-semibold mt-6 mb-2 text-left">Details</h2>
+      <div class="mb-4">
+        <label class="label" for="description">Description</label>
+        <textarea id="description" class="textarea textarea-bordered w-full" rows="3" placeholder="Enter description"></textarea>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+  </div>
+</div>
