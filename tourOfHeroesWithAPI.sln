@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tourOfHeroesWithAPI.Server", "tourOfHeroesWithAPI.Server\tourOfHeroesWithAPI.Server.csproj", "{4FE7FEAB-94FD-43A3-82CC-D09938AFE29C}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "tourofheroeswithapi.client", "tourofheroeswithapi.client\tourofheroeswithapi.client.esproj", "{BBADE2EA-E791-4835-BD4B-01A395E65794}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FE7FEAB-94FD-43A3-82CC-D09938AFE29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE7FEAB-94FD-43A3-82CC-D09938AFE29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE7FEAB-94FD-43A3-82CC-D09938AFE29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE7FEAB-94FD-43A3-82CC-D09938AFE29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBADE2EA-E791-4835-BD4B-01A395E65794}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68BFFC60-3A93-40D0-BFD3-7474D4614482}
+	EndGlobalSection
+EndGlobal
