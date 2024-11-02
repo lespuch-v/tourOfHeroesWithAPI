@@ -12,6 +12,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroInfoInputComponent } from './hero-info-input/hero-info-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component';
+import { HeroRatingPipe } from './pipes/hero-rating.pipe';
+import { HeroHealthPipe } from './pipes/hero-health.pipe';
+import { HeroTypePipe } from './pipes/hero-type.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component
     DashboardComponent,
     HeroesComponent,
     HeroInfoInputComponent,
-    AddHeroModalComponent
+    AddHeroModalComponent,
+    HeroRatingPipe,
+    HeroHealthPipe,
+    HeroTypePipe
   ],
   imports: [
     BrowserModule, HttpClientModule, ReactiveFormsModule,

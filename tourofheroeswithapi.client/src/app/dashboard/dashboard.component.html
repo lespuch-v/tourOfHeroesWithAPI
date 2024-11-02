@@ -3,15 +3,15 @@
   <div *ngFor="let hero of randomHeroes" class="card bg-base-100 shadow-xl">
     <div class="card-body">
       <h2 class="card-title">{{hero.name}}</h2>
-      <p class="badge badge-primary">{{hero.type | firstLetterUpperCase}}</p>
+      <p class="badge badge-ghost">{{hero.type | firstLetterUpperCase }} {{ hero.type | heroType }}</p>
       <div class="stats shadow">
         <div class="stat">
           <div class="stat-title">Rating</div>
-          <div class="stat-value">{{hero.rating}}</div>
+          <div class="stat-value">{{hero.rating | heroRating}}</div>
         </div>
         <div class="stat">
           <div class="stat-title">Health</div>
-          <div class="stat-value">{{hero.health}}</div>
+          <div class="stat-value">{{hero.health | heroHealth}}</div>
         </div>
       </div>
       <p>{{hero.description}}</p>
