@@ -1,7 +1,7 @@
 // add-hero-modal.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { HeroFormModel } from '../models/models';
+import { CreateHeroDTO, HeroFormModel } from '../models/models';
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -34,7 +34,20 @@ export class AddHeroModalComponent implements OnInit {
   handleSubmit(): void {
     if (this.heroForm.valid) {
       const formValue = this.heroForm.getRawValue();
-      console.log(formValue);
+
+      const form: CreateHeroDTO = {
+        name: formValue.name ?? '',
+        type: formValue.type as 'strength' | 'intelligence' | 'magic' | 'speed' | 'technology',
+        superpower: formValue.superpower ?? '',
+        rating: formValue.rating ?? 0,
+        health: formValue.health ?? 0,
+        description: formValue.description ?? ''
+      }
+
+      this.heroService.addHero(form).subscribe(result => {
+        console.log('Hero added...', result )
+        this.closeModal();
+      })
     } else {
       console.log('Form is invalid');
     }
