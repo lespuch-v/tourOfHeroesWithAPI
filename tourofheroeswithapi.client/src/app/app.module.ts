@@ -10,6 +10,8 @@ import { FirstLetterUpperCasePipe } from './pipes/first-letter-upper-case.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { TableComponent } from './table/table.component';
+import { HeroInfoInputComponent } from './hero-info-input/hero-info-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,12 @@ import { TableComponent } from './table/table.component';
     FirstLetterUpperCasePipe,
     DashboardComponent,
     HeroesComponent,
-    TableComponent
+    TableComponent,
+    HeroInfoInputComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
