@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Hero } from './models/models';
+import { CreateHeroDTO, Hero } from './models/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -142,5 +142,17 @@ export class HeroService {
       [shuffleHeroes[i], shuffleHeroes[randomNum]] = [shuffleHeroes[randomNum], shuffleHeroes[i]];
     }
     return of(shuffleHeroes.slice(0, count));
+  }
+
+  addHero(createHeroDto: CreateHeroDTO): Observable<Hero> {
+    const newHeroId = Math.max(...this.heroes.map(hero => hero.id)) + 1;
+
+    const newHeroToAdd: Hero = {
+      id: newHeroId,
+      ...createHeroDto
+    };
+
+    this.heroes.push(newHeroToAdd);
+    return of(newHeroToAdd);
   }
 }

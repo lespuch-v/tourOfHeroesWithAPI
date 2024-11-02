@@ -24,3 +24,12 @@ export interface ConfigInput {
   placeholderInfo: string;
   label: string;
 }
+
+export interface CreateHeroDTO {
+  name: string;
+  type: 'strength' | 'intelligence' | 'magic' | 'speed' | 'technology';
+  superpower: string;
+  rating: number;
+  health: number;
+  description: string;
+}

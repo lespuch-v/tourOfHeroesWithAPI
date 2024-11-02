@@ -12,7 +12,7 @@ import { HeroService } from '../hero.service';
 export class AddHeroModalComponent implements OnInit {
   isModalOpen: boolean = false;
   heroForm!: FormGroup<HeroFormModel>;
-  heroTypes = ['strength', 'intelligence', 'magic', 'speed', 'technology'] as const;
+  heroTypes: string[] = ['strength', 'intelligence', 'magic', 'speed', 'technology'];
 
   constructor(private fb: FormBuilder, private heroService: HeroService) {}
 

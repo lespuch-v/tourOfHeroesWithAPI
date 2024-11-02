@@ -7,11 +7,15 @@
       <div class="stats shadow">
         <div class="stat">
           <div class="stat-title">Rating</div>
-          <div class="stat-value">{{hero.rating | heroRating}}</div>
+          <div class="stat-value flex items-center overflow-hidden">{{hero.rating | heroRating}}/
+            <p class="text-xl">{{hero.rating}}</p>
+          </div>
         </div>
         <div class="stat">
           <div class="stat-title">Health</div>
-          <div class="stat-value">{{hero.health | heroHealth}}</div>
+          <div class="stat-value flex items-center overflow-hidden text-xl">{{hero.health | heroHealth}}/
+            <p class="text-xl">{{hero.health}}</p>
+          </div>
         </div>
       </div>
       <p>{{hero.description}}</p>
