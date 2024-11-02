@@ -133,4 +133,14 @@ export class HeroService {
   getAllHeroes(): Observable<Hero[]> {
     return of(this.heroes);
   }
+
+  getTopRandomHeroes(count: number): Observable<Hero[]> {
+    let shuffleHeroes = [...this.heroes];
+
+    for (let i = shuffleHeroes.length - 1; i > 0; i--) {
+      const randomNum = Math.floor(Math.random() * (i +1));
+      [shuffleHeroes[i], shuffleHeroes[randomNum]] = [shuffleHeroes[randomNum], shuffleHeroes[i]];
+    }
+    return of(shuffleHeroes.slice(0, count));
+  }
 }

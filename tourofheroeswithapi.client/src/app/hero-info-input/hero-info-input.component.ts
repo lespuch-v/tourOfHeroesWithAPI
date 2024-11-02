@@ -2,9 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 export interface ConfigInput {
-  id: number;
+  id: string;
   placeholderInfo: string;
-
 }
 
 @Component({
@@ -15,4 +14,8 @@ export interface ConfigInput {
 export class HeroInfoInputComponent {
   @Input() inputConfig!: ConfigInput;
   @Input() control!: FormControl;
+
+  getLabel(): string {
+    return this.inputConfig.id.charAt(0).toUpperCase() + this.inputConfig.id.slice(1);
+  }
 }

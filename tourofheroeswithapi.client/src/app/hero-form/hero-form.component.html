@@ -1,0 +1,48 @@
+<!-- hero-form.component.html -->
+<div tabindex="0" class="collapse collapse-plus bg-base-200">
+  <input type="checkbox" class="collapse-toggle" />
+  <div class="collapse-title text-xl font-medium">
+    Add New Hero
+  </div>
+  <div class="collapse-content">
+    <form [formGroup]="heroForm" (ngSubmit)="handleSubmit()">
+      <h2 class="text-lg font-semibold mt-4 mb-2 text-left">Basic Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-hero-info-input
+          [inputConfig]="{ id: 'name', placeholderInfo: 'Enter name' }"
+          [control]="getFormControl('name')">
+        </app-hero-info-input>
+
+        <app-hero-info-input
+          [inputConfig]="{ id: 'type', placeholderInfo: 'Enter type' }"
+          [control]="getFormControl('type')">
+        </app-hero-info-input>
+
+        <app-hero-info-input
+          [inputConfig]="{ id: 'superpower', placeholderInfo: 'Enter superpower' }"
+          [control]="getFormControl('superpower')">
+        </app-hero-info-input>
+      </div>
+
+      <h2 class="text-lg font-semibold mt-6 mb-2 text-left">Stats</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label class="label">Rating</label>
+          <input type="number" formControlName="rating" class="input input-bordered w-full">
+        </div>
+        <div class="mb-4">
+          <label class="label">Health</label>
+          <input type="number" formControlName="health" class="input input-bordered w-full">
+        </div>
+      </div>
+
+      <h2 class="text-lg font-semibold mt-6 mb-2 text-left">Details</h2>
+      <div class="mb-4">
+        <label class="label">Description</label>
+        <textarea formControlName="description" class="textarea textarea-bordered w-full"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

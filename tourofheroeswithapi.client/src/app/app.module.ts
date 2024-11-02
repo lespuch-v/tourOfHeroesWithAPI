@@ -12,6 +12,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { TableComponent } from './table/table.component';
 import { HeroInfoInputComponent } from './hero-info-input/hero-info-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     HeroesComponent,
     TableComponent,
-    HeroInfoInputComponent
+    HeroInfoInputComponent,
+    HeroFormComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

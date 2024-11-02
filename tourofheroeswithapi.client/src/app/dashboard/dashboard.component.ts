@@ -9,35 +9,13 @@ import { HeroService } from '../hero.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  heroForm!: FormGroup;
-  heroes: Hero[] = [];
+  randomHeroes: Hero[] = [];
 
-  constructor(private fb: FormBuilder, private _heroService: HeroService ) {
-  }
+  constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {
-    this.heroForm = this.fb.group({
-     name: ['', Validators.required],
-      type: ['', Validators.required],
-      superpower: [''],
-      rating: [0],
-      health: [0],
-      description: ['']
+    this.heroService.getTopRandomHeroes(4).subscribe(heroes => {
+      this.randomHeroes = heroes;
     });
-    this._heroService.getAllHeroes().subscribe(result => {
-      console.log(result)
-    })
-  }
-
-  handleSubmit(): void {
-    if (this.heroForm.valid) {
-      console.log(this.heroForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
-  }
-
-  getFormControl(controlName: string) {
-    return this.heroForm.get(controlName) as FormControl;
   }
 }
