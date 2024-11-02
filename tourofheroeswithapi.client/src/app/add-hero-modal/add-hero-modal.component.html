@@ -1,1 +1,67 @@
-<p>add-hero-modal works!</p>
+<div class="modal" [class.modal-open]="isModalOpen">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Add New Hero</h3>
+
+    <form [formGroup]="heroForm" (ngSubmit)="handleSubmit()">
+      <h4 class="text-lg font-semibold mt-4 mb-2 text-left">Basic Information</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label class="label">Name</label>
+          <input type="text" formControlName="name"
+                 class="input input-bordered w-full"
+                 placeholder="Hero name">
+        </div>
+
+        <div class="mb-4">
+          <label class="label">Type</label>
+          <select formControlName="type" class="select select-bordered w-full">
+            <option value="">Select type</option>
+            <option *ngFor="let type of heroTypes" [value]="type">
+              {{type | firstLetterUpperCase}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mt-6 mb-2 text-left">Stats</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label class="label">Rating</label>
+          <input type="number" formControlName="rating"
+                 class="input input-bordered w-full"
+                 min="0" max="100">
+        </div>
+
+        <div class="mb-4">
+          <label class="label">Health</label>
+          <input type="number" formControlName="health"
+                 class="input input-bordered w-full"
+                 min="0" max="100">
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mt-6 mb-2 text-left">Details</h4>
+
+      <div class="mb-4">
+        <label class="label">Superpower</label>
+        <input type="text" formControlName="superpower"
+               class="input input-bordered w-full"
+               placeholder="Hero's superpower">
+      </div>
+
+      <div class="mb-4">
+        <label class="label">Description</label>
+        <textarea formControlName="description"
+                  class="textarea textarea-bordered w-full"
+                  placeholder="Hero description"></textarea>
+      </div>
+
+      <div class="modal-action">
+        <button type="button" class="btn" (click)="closeModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

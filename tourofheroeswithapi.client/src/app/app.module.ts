@@ -12,7 +12,6 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { TableComponent } from './table/table.component';
 import { HeroInfoInputComponent } from './hero-info-input/hero-info-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeroFormComponent } from './hero-form/hero-form.component';
 import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component';
 
 @NgModule({
@@ -25,11 +24,10 @@ import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component
     HeroesComponent,
     TableComponent,
     HeroInfoInputComponent,
-    HeroFormComponent,
     AddHeroModalComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, HttpClientModule, ReactiveFormsModule,
     AppRoutingModule, ReactiveFormsModule
   ],
   providers: [],

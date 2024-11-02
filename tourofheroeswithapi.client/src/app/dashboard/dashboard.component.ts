@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Hero } from '../models/models';
 import { HeroService } from '../hero.service';
+import { AddHeroModalComponent } from '../add-hero-modal/add-hero-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,7 @@ import { HeroService } from '../hero.service';
 })
 export class DashboardComponent implements OnInit {
   randomHeroes: Hero[] = [];
+  @ViewChild('addHereModal') addHeroModal!: AddHeroModalComponent;
 
   constructor(private heroService: HeroService) {}
 
@@ -17,5 +19,9 @@ export class DashboardComponent implements OnInit {
     this.heroService.getTopRandomHeroes(4).subscribe(heroes => {
       this.randomHeroes = heroes;
     });
+  }
+
+  openAddHeroModal(): void {
+    this.addHeroModal.openModal();
   }
 }

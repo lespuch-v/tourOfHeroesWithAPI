@@ -1,3 +1,4 @@
+<button class="btn btn-primary w-full mb-3" (click)="openAddHeroModal()">Add New Hero</button>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <div *ngFor="let hero of randomHeroes" class="card bg-base-100 shadow-xl">
     <div class="card-body">
@@ -21,5 +22,5 @@
   </div>
 </div>
 <div class="mt-8">
-  <app-hero-form></app-hero-form>
+  <app-add-hero-modal #addHereModal></app-add-hero-modal>
 </div>
