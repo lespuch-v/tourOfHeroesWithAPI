@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroesComponent } from '../heroes/heroes.component';
-import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-menu',
@@ -11,11 +10,10 @@ import { TableComponent } from '../table/table.component';
 export class MenuComponent {
 
   selectedTabIndex: number = 0;
-  tabs: string[] = ['dashboard', 'heroes', 'table']
+  tabs: string[] = ['dashboard', 'heroes']
   componentMap: { [key: string]: any } = {
     'dashboard': DashboardComponent,
     'heroes': HeroesComponent,
-    'table': TableComponent,
   };
 
   selectTab(i: number) {

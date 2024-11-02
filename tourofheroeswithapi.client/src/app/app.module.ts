@@ -9,7 +9,6 @@ import { MenuComponent } from './menu/menu.component';
 import { FirstLetterUpperCasePipe } from './pipes/first-letter-upper-case.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { TableComponent } from './table/table.component';
 import { HeroInfoInputComponent } from './hero-info-input/hero-info-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component';
@@ -22,7 +21,6 @@ import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component
     FirstLetterUpperCasePipe,
     DashboardComponent,
     HeroesComponent,
-    TableComponent,
     HeroInfoInputComponent,
     AddHeroModalComponent
   ],

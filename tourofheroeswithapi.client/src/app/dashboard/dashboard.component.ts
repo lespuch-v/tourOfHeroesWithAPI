@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Hero } from '../models/models';
 import { HeroService } from '../hero.service';
 import { AddHeroModalComponent } from '../add-hero-modal/add-hero-modal.component';
