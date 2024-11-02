@@ -12,3 +12,11 @@ th, td {
 table {
     margin: 0 auto;
 }
+
+.container-placement{
+  margin: 0 auto;
+}
+
+.heading-spacing{
+  padding: 50px;
+}
