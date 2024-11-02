@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  padding-top: 1rem;
+}
+
+.table th:first-child,
+.table td:first-child {
+  position: sticky;
+  left: 0;
+  background: inherit;
+}
+
+.table tbody tr:hover td:first-child {
+  background: hsl(var(--b2));
+}
+.table tbody tr:hover {
+  background-color: #e2e2e2;
+}

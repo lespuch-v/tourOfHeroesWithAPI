@@ -155,4 +155,18 @@ export class HeroService {
     this.heroes.push(newHeroToAdd);
     return of(newHeroToAdd);
   }
+
+  updateHero(updatedHero: Hero): Observable<Hero> {
+    const index = this.heroes.findIndex(hero => hero.id === updatedHero.id);
+
+    if (index !== -1) {
+      this.heroes[index] = {
+        ...this.heroes[index],
+        ...updatedHero
+      };
+      return of(this.heroes[index]);
+    } else {
+      throw new Error(`Hero with id ${updatedHero.id} not found`);
+    }
+  }
 }

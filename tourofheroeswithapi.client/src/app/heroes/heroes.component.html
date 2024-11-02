@@ -1,1 +1,126 @@
-<p>heroes works!</p>
+<div class="container mx-auto p-6">
+  <div class="overflow-x-auto bg-base-100 rounded-lg shadow-xl">
+    <table class="table table-zebra w-full">
+      <thead>
+      <tr class="bg-base-200">
+        @for (header of tableHeaders; track header){
+          <th class="font-bold">{{ header }}</th>
+        }
+      </tr>
+      </thead>
+      <tbody>
+        @for (hero of heroes; track hero.id){
+          <tr (click)="selectHero(hero)"
+              class="hover:bg-base-200 cursor-pointer transition-colors duration-200">
+            <td class="font-medium">{{hero.name}}</td>
+            <td>
+            <span class="flex items-center gap-2">
+              {{hero.type | firstLetterUpperCase}} {{hero.type | heroType}}
+            </span>
+            </td>
+            <td>
+            <span class="flex items-center gap-2">
+              {{hero.rating}} {{hero.rating | heroRating}}
+            </span>
+            </td>
+            <td>
+            <span class="flex items-center gap-2">
+              {{hero.health}} {{hero.health | heroHealth}}
+            </span>
+            </td>
+            <td>
+              <span class="badge badge-primary">{{hero.superpower}}</span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edit Form Panel -->
+  <div class="fixed top-0 right-0 h-full w-96 bg-base-100 shadow-2xl transform transition-transform duration-300"
+       [class.translate-x-0]="isDetailsPanelOpen"
+       [class.translate-x-full]="!isDetailsPanelOpen">
+    <div *ngIf="selectedHero && heroForm" class="p-6 h-full overflow-y-auto">
+      <!-- Close Button -->
+      <button class="btn btn-circle btn-ghost absolute right-4 top-4" (click)="closeDetailsPanel()">✕</button>
+
+      <!-- Edit Form -->
+      <form [formGroup]="heroForm" (ngSubmit)="updateHero()" class="mt-8 space-y-6">
+        <h2 class="text-2xl font-bold mb-6">Edit Hero</h2>
+
+        <!-- Name -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Name</span>
+          </label>
+          <input type="text"
+                 formControlName="name"
+                 class="input input-bordered w-full"
+                 [class.input-error]="heroForm.get('name')?.invalid && heroForm.get('name')?.touched"/>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Type</span>
+          </label>
+          <select formControlName="type" class="select select-bordered w-full">
+            <option *ngFor="let type of heroTypes" [value]="type">
+              {{type | firstLetterUpperCase}} {{type | heroType}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Rating (0-100)</span>
+          </label>
+          <input type="number"
+                 formControlName="rating"
+                 min="0"
+                 max="100"
+                 class="input input-bordered w-full"
+                 [class.input-error]="heroForm.get('rating')?.invalid && heroForm.get('rating')?.touched"/>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Health (0-100)</span>
+          </label>
+          <input type="number"
+                 formControlName="health"
+                 min="0"
+                 max="100"
+                 class="input input-bordered w-full"
+                 [class.input-error]="heroForm.get('health')?.invalid && heroForm.get('health')?.touched"/>
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Superpower</span>
+          </label>
+          <input type="text"
+                 formControlName="superpower"
+                 class="input input-bordered w-full"
+                 [class.input-error]="heroForm.get('superpower')?.invalid && heroForm.get('superpower')?.touched"/>
+        </div>
+
+x        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <textarea formControlName="description"
+                    class="textarea textarea-bordered h-24"
+                    [class.textarea-error]="heroForm.get('description')?.invalid && heroForm.get('description')?.touched">
+          </textarea>
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary w-full"
+                [disabled]="!heroForm.valid">
+          Update Hero
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
