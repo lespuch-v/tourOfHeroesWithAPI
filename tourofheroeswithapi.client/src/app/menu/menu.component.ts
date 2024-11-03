@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { HeroesComponent } from '../heroes/heroes.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,14 +8,13 @@ import { HeroesComponent } from '../heroes/heroes.component';
 })
 export class MenuComponent {
 
+  constructor(private router: Router) {}
+
   selectedTabIndex: number = 0;
   tabs: string[] = ['dashboard', 'heroes']
-  componentMap: { [key: string]: any } = {
-    'dashboard': DashboardComponent,
-    'heroes': HeroesComponent,
-  };
 
   selectTab(i: number) {
     this.selectedTabIndex = i;
+    this.router.navigate([this.tabs[i]]);
   }
 }

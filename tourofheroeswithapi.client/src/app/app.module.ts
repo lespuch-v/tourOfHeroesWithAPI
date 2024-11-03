@@ -15,6 +15,7 @@ import { AddHeroModalComponent } from './add-hero-modal/add-hero-modal.component
 import { HeroRatingPipe } from './pipes/hero-rating.pipe';
 import { HeroHealthPipe } from './pipes/hero-health.pipe';
 import { HeroTypePipe } from './pipes/hero-type.pipe';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeroTypePipe } from './pipes/hero-type.pipe';
     AddHeroModalComponent,
     HeroRatingPipe,
     HeroHealthPipe,
-    HeroTypePipe
+    HeroTypePipe,
+    HeroDetailComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule, ReactiveFormsModule,

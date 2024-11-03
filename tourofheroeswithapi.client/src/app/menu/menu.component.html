@@ -1,18 +1,10 @@
-<div role="tablist" class="tabs tabs-lifted">
-  @for (tab of tabs; track tab; let i = $index) {
-    <input type="radio"
-           [name]="tab + '-' + i"
-           role="tab"
-           class="tab"
-           [attr.aria-label]="tab | firstLetterUpperCase"
-           [checked]="i === selectedTabIndex"
-           (click)="selectTab(i)"
-           [routerLink]="['/', tab]"
-    />
-    @for (tab of tabs; track tab; let i = $index) {
-      <div *ngIf="i === selectedTabIndex" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-        <ng-container *ngComponentOutlet="componentMap[tab]"></ng-container>
-      </div>
-    }
+<div class="tabs tabs-lifted" role="tablist">
+  @for(tab of tabs; track tab; let i = $index){
+    <div class="tab"
+         [class.tab-active]="i === selectedTabIndex"
+         (click)="selectTab(i)">
+      {{tab}}
+    </div>
   }
 </div>
+<router-outlet></router-outlet>

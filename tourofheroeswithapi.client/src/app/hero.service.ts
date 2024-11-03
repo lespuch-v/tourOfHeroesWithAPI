@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CreateHeroDTO, Hero } from './models/models';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -126,12 +126,13 @@ export class HeroService {
       description: "Can summon storms and control the weather to aid in battles."
     }
   ];
+  private heroesSubject = new BehaviorSubject<Hero[]>(this.heroes);
 
   constructor() {
   }
 
   getAllHeroes(): Observable<Hero[]> {
-    return of(this.heroes);
+    return this.heroesSubject.asObservable();
   }
 
   getTopRandomHeroes(count: number): Observable<Hero[]> {
@@ -153,20 +154,17 @@ export class HeroService {
     };
 
     this.heroes.push(newHeroToAdd);
-    return of(newHeroToAdd);
+    this.heroesSubject.next(this.heroes);
+    return new BehaviorSubject<Hero>(newHeroToAdd).asObservable();
   }
 
   updateHero(updatedHero: Hero): Observable<Hero> {
-    const index = this.heroes.findIndex(hero => hero.id === updatedHero.id);
-
+    const index = this.heroes.findIndex(h => h.id === updatedHero.id);
     if (index !== -1) {
-      this.heroes[index] = {
-        ...this.heroes[index],
-        ...updatedHero
-      };
-      return of(this.heroes[index]);
-    } else {
-      throw new Error(`Hero with id ${updatedHero.id} not found`);
+      this.heroes[index] = updatedHero;
+      this.heroesSubject.next([...this.heroes]);
+      return of(updatedHero);
     }
+    throw new Error(`Hero with id ${updatedHero.id} not found`);
   }
 }

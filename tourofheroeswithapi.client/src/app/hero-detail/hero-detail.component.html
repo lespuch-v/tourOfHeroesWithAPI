@@ -1,0 +1,66 @@
+<div class="fixed top-0 right-0 h-full w-96 bg-base-100 shadow-2xl transform transition-transform duration-300"
+     [class.translate-x-0]="true"
+     [class.translate-x-full]="false">
+  <div class="p-6 h-full overflow-y-auto" *ngIf="hero && heroForm">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold">Edit Hero</h2>
+      <button class="btn btn-ghost" (click)="closeDetails()">✕</button>
+    </div>
+
+    <form [formGroup]="heroForm" (ngSubmit)="updateHero()">
+      <!-- Name -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Name</span>
+        </label>
+        <input type="text" [formControl]="getFormControl('name')" class="input input-bordered" />
+      </div>
+
+      <!-- Type -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Type</span>
+        </label>
+        <select [formControl]="getFormControl('type')" class="select select-bordered">
+          <option *ngFor="let type of heroTypes" [value]="type">
+            {{type | firstLetterUpperCase}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Rating -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Rating (0-100)</span>
+        </label>
+        <input type="number" [formControl]="getFormControl('rating')" class="input input-bordered" />
+      </div>
+
+      <!-- Health -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Health (0-100)</span>
+        </label>
+        <input type="number" [formControl]="getFormControl('health')" class="input input-bordered" />
+      </div>
+
+      <!-- Superpower -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Superpower</span>
+        </label>
+        <input type="text" [formControl]="getFormControl('superpower')" class="input input-bordered" />
+      </div>
+
+      <!-- Description -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Description</span>
+        </label>
+        <textarea [formControl]="getFormControl('description')" class="textarea textarea-bordered h-24"></textarea>
+      </div>
+
+      <button class="btn btn-primary mt-6 w-full" type="submit">Update Hero</button>
+    </form>
+  </div>
+</div>

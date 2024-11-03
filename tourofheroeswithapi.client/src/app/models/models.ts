@@ -1,9 +1,11 @@
 import { FormControl } from '@angular/forms';
 
+export type HeroType = 'strength' | 'intelligence' | 'magic' | 'speed' | 'technology';
+
 export interface Hero {
   id: number;
   name: string;
-  type: 'strength' | 'intelligence' | 'magic' | 'speed' | 'technology';
+  type: HeroType;
   superpower: string;
   rating: number;
   health: number;
@@ -11,18 +13,12 @@ export interface Hero {
 }
 
 export interface HeroFormModel {
-  name: FormControl<string | null>;
-  type: FormControl<string | null>;
-  superpower: FormControl<string | null>;
-  rating: FormControl<number | null>;
-  health: FormControl<number | null>;
-  description: FormControl<string | null>;
-}
-
-export interface ConfigInput {
-  id: string;
-  placeholderInfo: string;
-  label: string;
+  name: FormControl<string>;
+  type: FormControl<HeroType>;
+  superpower: FormControl<string>;
+  rating: FormControl<number>;
+  health: FormControl<number>;
+  description: FormControl<string>;
 }
 
 export interface CreateHeroDTO {
@@ -32,13 +28,4 @@ export interface CreateHeroDTO {
   rating: number;
   health: number;
   description: string;
-}
-
-export interface HeroFormModel {
-  name: FormControl<string | null>;
-  type: FormControl<string | null>;
-  superpower: FormControl<string | null>;
-  rating: FormControl<number | null>;
-  health: FormControl<number | null>;
-  description: FormControl<string | null>;
 }
