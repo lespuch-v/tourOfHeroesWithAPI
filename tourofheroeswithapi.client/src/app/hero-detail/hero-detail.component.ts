@@ -22,15 +22,12 @@ export class HeroDetailComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    console.log('HeroDetailComponent initializing'); // Debug log
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      console.log('Route param id:', id); // Debug log
 
       if (id) {
         this.heroService.getAllHeroes().subscribe(heroes => {
           this.hero = heroes.find(h => h.id === +id) || null;
-          console.log('Found hero:', this.hero); // Debug log
 
           if (this.hero) {
             this.initializeForm(this.hero);

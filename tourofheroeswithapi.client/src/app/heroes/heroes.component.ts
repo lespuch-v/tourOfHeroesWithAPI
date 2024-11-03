@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-  tableHeaders: string[] = ['Hero', 'Type', 'Rating', 'Health', 'Superpower'];
+  tableHeaders: string[] = ['Hero', 'Type', 'Rating', 'Health', 'Superpower', 'Remove'];
   selectedHeroId: number | null = null;
 
   constructor(
@@ -36,5 +36,19 @@ export class HeroesComponent implements OnInit {
   selectHero(hero: Hero): void {
     this.selectedHeroId = hero.id;
     this.router.navigate([hero.id], { relativeTo: this.route });
+  }
+
+  handleRemove($event: MouseEvent, heroId: number){
+    $event.stopPropagation();
+    this.heroService.deleteHero(heroId).subscribe({
+      next: () => {
+        const index = this.heroes.findIndex(hero => hero.id === heroId);
+        this.heroes.slice(index, 1)
+        console.log('Hero deleted successfully');
+      },
+      error: () => {
+        console.log('Something went wrong...')
+      }
+    })
   }
 }

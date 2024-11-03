@@ -3,7 +3,7 @@
     <div class="tab"
          [class.tab-active]="i === selectedTabIndex"
          (click)="selectTab(i)">
-      {{tab}}
+      {{tab | firstLetterUpperCase}}
     </div>
   }
 </div>

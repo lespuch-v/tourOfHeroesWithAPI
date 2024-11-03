@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CreateHeroDTO, Hero } from './models/models';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -166,5 +166,17 @@ export class HeroService {
       return of(updatedHero);
     }
     throw new Error(`Hero with id ${updatedHero.id} not found`);
+  }
+
+  deleteHero(id: number): Observable<void> {
+    const index = this.heroes.findIndex(hero => hero.id === id);
+
+    if (index === -1) {
+      return throwError(() => new Error('Hero not found...'))
+    }
+
+    this.heroes.splice(index, 1);
+    this.heroesSubject.next([...this.heroes]);
+    return of(void 0);
   }
 }
